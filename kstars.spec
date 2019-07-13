@@ -4,7 +4,7 @@
 #
 Name     : kstars
 Version  : 2.9.8
-Release  : 1
+Release  : 2
 URL      : https://github.com/KDE/kstars/archive/v2.9.8.tar.gz
 Source0  : https://github.com/KDE/kstars/archive/v2.9.8.tar.gz
 Summary  : No detailed summary available
@@ -76,23 +76,28 @@ license components for the kstars package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1548187277
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1562979762
 mkdir -p clr-build
 pushd clr-build
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %cmake ..
 make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test
 
 %install
-export SOURCE_DATE_EPOCH=1548187277
+export SOURCE_DATE_EPOCH=1562979762
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kstars
 cp COPYING %{buildroot}/usr/share/package-licenses/kstars/COPYING
@@ -723,6 +728,7 @@ popd
 /usr/share/kstars/wzscope.png
 /usr/share/kstars/wzstars.png
 /usr/share/metainfo/org.kde.kstars.appdata.xml
+/usr/share/polkit-1/actions/org.kde.kf5auth.kstars.policy
 /usr/share/sounds/KDE-KStars-Alert.ogg
 /usr/share/sounds/KDE-KStars-FITS-Received.ogg
 /usr/share/sounds/KDE-KStars-Finish-Success.ogg

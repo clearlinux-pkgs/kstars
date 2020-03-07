@@ -4,12 +4,12 @@
 #
 Name     : kstars
 Version  : 2.9.8
-Release  : 2
+Release  : 3
 URL      : https://github.com/KDE/kstars/archive/v2.9.8.tar.gz
 Source0  : https://github.com/KDE/kstars/archive/v2.9.8.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : BSD-3-Clause CC-BY-SA-4.0 GFDL-1.2 GPL-2.0 SGI-B-2.0
+License  : BSD-3-Clause CC-BY-SA-4.0 GFDL-1.2 GPL-2.0 LGPL-3.0 MIT SGI-B-2.0
 Requires: kstars-bin = %{version}-%{release}
 Requires: kstars-data = %{version}-%{release}
 Requires: kstars-license = %{version}-%{release}
@@ -71,13 +71,14 @@ license components for the kstars package.
 
 %prep
 %setup -q -n kstars-2.9.8
+cd %{_builddir}/kstars-2.9.8
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562979762
+export SOURCE_DATE_EPOCH=1583541808
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -86,7 +87,7 @@ export FCFLAGS="$CFLAGS -fno-lto "
 export FFLAGS="$CFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %check
@@ -97,14 +98,17 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test
 
 %install
-export SOURCE_DATE_EPOCH=1562979762
+export SOURCE_DATE_EPOCH=1583541808
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kstars
-cp COPYING %{buildroot}/usr/share/package-licenses/kstars/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/package-licenses/kstars/COPYING.DOC
-cp LICENSE_OpenNGC %{buildroot}/usr/share/package-licenses/kstars/LICENSE_OpenNGC
-cp cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kstars/cmake_modules_COPYING-CMAKE-SCRIPTS
-cp kstars/libtess/src/LICENSE %{buildroot}/usr/share/package-licenses/kstars/kstars_libtess_src_LICENSE
+cp %{_builddir}/kstars-2.9.8/COPYING %{buildroot}/usr/share/package-licenses/kstars/d357e60aa8efd63b4475c3363700ba54f9a71343
+cp %{_builddir}/kstars-2.9.8/COPYING.DOC %{buildroot}/usr/share/package-licenses/kstars/fcbf818f92ef8679a88f3778b12b4c8b5810545b
+cp %{_builddir}/kstars-2.9.8/LICENSE_OpenNGC %{buildroot}/usr/share/package-licenses/kstars/9993108f28ba106942c5eca4aaa886d2e047159b
+cp %{_builddir}/kstars-2.9.8/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kstars/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/kstars-2.9.8/kstars/fitsviewer/sep/BSD_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/5129b47bd80d27f5072646a5d4328dae5c88c534
+cp %{_builddir}/kstars-2.9.8/kstars/fitsviewer/sep/LGPL_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/f45ee1c765646813b442ca58de72e20a64a7ddba
+cp %{_builddir}/kstars-2.9.8/kstars/fitsviewer/sep/MIT_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/2fd1ad172d946b70d2a94c6d9d37246a483332c1
+cp %{_builddir}/kstars-2.9.8/kstars/libtess/src/LICENSE %{buildroot}/usr/share/package-licenses/kstars/c05415620bd80bf577b697c89b30882d7ba3cc8d
 pushd clr-build
 %make_install
 popd
@@ -887,8 +891,11 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/kstars/COPYING
-/usr/share/package-licenses/kstars/COPYING.DOC
-/usr/share/package-licenses/kstars/LICENSE_OpenNGC
-/usr/share/package-licenses/kstars/cmake_modules_COPYING-CMAKE-SCRIPTS
-/usr/share/package-licenses/kstars/kstars_libtess_src_LICENSE
+/usr/share/package-licenses/kstars/2fd1ad172d946b70d2a94c6d9d37246a483332c1
+/usr/share/package-licenses/kstars/5129b47bd80d27f5072646a5d4328dae5c88c534
+/usr/share/package-licenses/kstars/9993108f28ba106942c5eca4aaa886d2e047159b
+/usr/share/package-licenses/kstars/c05415620bd80bf577b697c89b30882d7ba3cc8d
+/usr/share/package-licenses/kstars/d357e60aa8efd63b4475c3363700ba54f9a71343
+/usr/share/package-licenses/kstars/f45ee1c765646813b442ca58de72e20a64a7ddba
+/usr/share/package-licenses/kstars/fcbf818f92ef8679a88f3778b12b4c8b5810545b
+/usr/share/package-licenses/kstars/ff3ed70db4739b3c6747c7f624fe2bad70802987

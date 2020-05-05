@@ -4,7 +4,7 @@
 #
 Name     : kstars
 Version  : 2.9.8
-Release  : 3
+Release  : 4
 URL      : https://github.com/KDE/kstars/archive/v2.9.8.tar.gz
 Source0  : https://github.com/KDE/kstars/archive/v2.9.8.tar.gz
 Summary  : No detailed summary available
@@ -17,7 +17,9 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-cpan
 BuildRequires : buildreq-kde
 BuildRequires : cfitsio-dev
+BuildRequires : eigen-data
 BuildRequires : eigen-dev
+BuildRequires : extra-cmake-modules-data
 BuildRequires : glibc-dev
 BuildRequires : gsl-dev
 BuildRequires : knotifyconfig-dev
@@ -26,8 +28,12 @@ BuildRequires : mesa-dev
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(libraw)
 BuildRequires : pkgconfig(libraw_r)
+BuildRequires : pkgconfig(libsecret-1)
 BuildRequires : pkgconfig(wcslib)
+BuildRequires : qtbase-dev
 BuildRequires : qtbase-dev mesa-dev
+BuildRequires : qtdatavis3d-dev
+BuildRequires : qtkeychain-dev
 BuildRequires : zlib-dev
 
 %description
@@ -78,13 +84,13 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583541808
+export SOURCE_DATE_EPOCH=1588701843
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
@@ -98,7 +104,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test
 
 %install
-export SOURCE_DATE_EPOCH=1583541808
+export SOURCE_DATE_EPOCH=1588701843
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kstars
 cp %{_builddir}/kstars-2.9.8/COPYING %{buildroot}/usr/share/package-licenses/kstars/d357e60aa8efd63b4475c3363700ba54f9a71343

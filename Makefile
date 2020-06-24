@@ -1,5 +1,5 @@
 PKG_NAME := kstars
-URL = https://github.com/KDE/kstars/archive/v2.9.8.tar.gz
+URL = https://download.kde.org/stable/kstars/kstars-3.4.2.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common

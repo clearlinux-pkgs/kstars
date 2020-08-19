@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x6D9CE2AEE028C4F3 (mutlaqja@ikarustech.com)
 #
 Name     : kstars
-Version  : 3.4.2
-Release  : 6
-URL      : https://download.kde.org/stable/kstars/kstars-3.4.2.tar.xz
-Source0  : https://download.kde.org/stable/kstars/kstars-3.4.2.tar.xz
-Source1  : https://download.kde.org/stable/kstars/kstars-3.4.2.tar.xz.sig
+Version  : 3.4.3
+Release  : 7
+URL      : https://download.kde.org/stable/kstars/kstars-3.4.3.tar.xz
+Source0  : https://download.kde.org/stable/kstars/kstars-3.4.3.tar.xz
+Source1  : https://download.kde.org/stable/kstars/kstars-3.4.3.tar.xz.sig
 Summary  : Free, open source, cross-platform Astronomy Software
 Group    : Development/Tools
 License  : BSD-3-Clause CC-BY-SA-4.0 GFDL-1.2 GPL-2.0 LGPL-3.0 MIT SGI-B-2.0
@@ -105,15 +105,15 @@ locales components for the kstars package.
 
 
 %prep
-%setup -q -n kstars-3.4.2
-cd %{_builddir}/kstars-3.4.2
+%setup -q -n kstars-3.4.3
+cd %{_builddir}/kstars-3.4.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1593042051
+export SOURCE_DATE_EPOCH=1597870884
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -133,16 +133,16 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test
 
 %install
-export SOURCE_DATE_EPOCH=1593042051
+export SOURCE_DATE_EPOCH=1597870884
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kstars
-cp %{_builddir}/kstars-3.4.2/COPYING %{buildroot}/usr/share/package-licenses/kstars/d357e60aa8efd63b4475c3363700ba54f9a71343
-cp %{_builddir}/kstars-3.4.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/kstars/fcbf818f92ef8679a88f3778b12b4c8b5810545b
-cp %{_builddir}/kstars-3.4.2/LICENSE_OpenNGC %{buildroot}/usr/share/package-licenses/kstars/9993108f28ba106942c5eca4aaa886d2e047159b
-cp %{_builddir}/kstars-3.4.2/kstars/fitsviewer/sep/BSD_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/5129b47bd80d27f5072646a5d4328dae5c88c534
-cp %{_builddir}/kstars-3.4.2/kstars/fitsviewer/sep/LGPL_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/f45ee1c765646813b442ca58de72e20a64a7ddba
-cp %{_builddir}/kstars-3.4.2/kstars/fitsviewer/sep/MIT_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/2fd1ad172d946b70d2a94c6d9d37246a483332c1
-cp %{_builddir}/kstars-3.4.2/kstars/libtess/src/LICENSE %{buildroot}/usr/share/package-licenses/kstars/c05415620bd80bf577b697c89b30882d7ba3cc8d
+cp %{_builddir}/kstars-3.4.3/COPYING %{buildroot}/usr/share/package-licenses/kstars/d357e60aa8efd63b4475c3363700ba54f9a71343
+cp %{_builddir}/kstars-3.4.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/kstars/fcbf818f92ef8679a88f3778b12b4c8b5810545b
+cp %{_builddir}/kstars-3.4.3/LICENSE_OpenNGC %{buildroot}/usr/share/package-licenses/kstars/9993108f28ba106942c5eca4aaa886d2e047159b
+cp %{_builddir}/kstars-3.4.3/kstars/fitsviewer/sep/BSD_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/5129b47bd80d27f5072646a5d4328dae5c88c534
+cp %{_builddir}/kstars-3.4.3/kstars/fitsviewer/sep/LGPL_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/f45ee1c765646813b442ca58de72e20a64a7ddba
+cp %{_builddir}/kstars-3.4.3/kstars/fitsviewer/sep/MIT_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/2fd1ad172d946b70d2a94c6d9d37246a483332c1
+cp %{_builddir}/kstars-3.4.3/kstars/libtess/src/LICENSE %{buildroot}/usr/share/package-licenses/kstars/c05415620bd80bf577b697c89b30882d7ba3cc8d
 pushd clr-build
 %make_install
 popd
@@ -205,6 +205,7 @@ popd
 /usr/share/kstars/earth.R5.vsop
 /usr/share/kstars/earth.orbit
 /usr/share/kstars/ekoslive.png
+/usr/share/kstars/fr/info_url.dat
 /usr/share/kstars/geomap.png
 /usr/share/kstars/glossary.xml
 /usr/share/kstars/image_url.dat
@@ -521,6 +522,7 @@ popd
 /usr/share/kstars/moonLR.dat
 /usr/share/kstars/moonless-night.colors
 /usr/share/kstars/namedstars.dat
+/usr/share/kstars/nds/info_url.dat
 /usr/share/kstars/neptune.B0.vsop
 /usr/share/kstars/neptune.B1.vsop
 /usr/share/kstars/neptune.B2.vsop
@@ -785,10 +787,8 @@ popd
 /usr/share/doc/HTML/ca/kstars/Another_way5.png
 /usr/share/doc/HTML/ca/kstars/Another_way6.png
 /usr/share/doc/HTML/ca/kstars/Another_way_to_add_part3.png
-/usr/share/doc/HTML/ca/kstars/add-circle.png
 /usr/share/doc/HTML/ca/kstars/advanced_tab.png
 /usr/share/doc/HTML/ca/kstars/ai-contents.docbook
-/usr/share/doc/HTML/ca/kstars/alpha.png
 /usr/share/doc/HTML/ca/kstars/altvstime.docbook
 /usr/share/doc/HTML/ca/kstars/altvstime.png
 /usr/share/doc/HTML/ca/kstars/astroinfo.docbook
@@ -830,9 +830,6 @@ popd
 /usr/share/doc/HTML/ca/kstars/darkmatter.docbook
 /usr/share/doc/HTML/ca/kstars/detaildialog.png
 /usr/share/doc/HTML/ca/kstars/details.docbook
-/usr/share/doc/HTML/ca/kstars/dialog-ok-apply.png
-/usr/share/doc/HTML/ca/kstars/document-edit.png
-/usr/share/doc/HTML/ca/kstars/document-open.png
 /usr/share/doc/HTML/ca/kstars/dumpmode.docbook
 /usr/share/doc/HTML/ca/kstars/ecliptic.docbook
 /usr/share/doc/HTML/ca/kstars/ekos-align.docbook
@@ -856,8 +853,6 @@ popd
 /usr/share/doc/HTML/ca/kstars/fitsviewer.docbook
 /usr/share/doc/HTML/ca/kstars/flux.docbook
 /usr/share/doc/HTML/ca/kstars/flux.png
-/usr/share/doc/HTML/ca/kstars/flux1.png
-/usr/share/doc/HTML/ca/kstars/flux2.png
 /usr/share/doc/HTML/ca/kstars/geocoords.docbook
 /usr/share/doc/HTML/ca/kstars/greatcircle.docbook
 /usr/share/doc/HTML/ca/kstars/guides_tab.png
@@ -869,23 +864,14 @@ popd
 /usr/share/doc/HTML/ca/kstars/indi.docbook
 /usr/share/doc/HTML/ca/kstars/indi_tab.png
 /usr/share/doc/HTML/ca/kstars/indicapture.png
-/usr/share/doc/HTML/ca/kstars/install.docbook
 /usr/share/doc/HTML/ca/kstars/jmoons.docbook
 /usr/share/doc/HTML/ca/kstars/julianday.docbook
 /usr/share/doc/HTML/ca/kstars/kepler2nd.png
-/usr/share/doc/HTML/ca/kstars/kepler3d.png
-/usr/share/doc/HTML/ca/kstars/lambda_ex.png
-/usr/share/doc/HTML/ca/kstars/lambda_max.png
 /usr/share/doc/HTML/ca/kstars/leapyear.docbook
 /usr/share/doc/HTML/ca/kstars/lightcurve.png
 /usr/share/doc/HTML/ca/kstars/lightcurves.docbook
-/usr/share/doc/HTML/ca/kstars/list-add.png
 /usr/share/doc/HTML/ca/kstars/luminosity.docbook
-/usr/share/doc/HTML/ca/kstars/luminosity.png
-/usr/share/doc/HTML/ca/kstars/luminosity_ex.png
 /usr/share/doc/HTML/ca/kstars/magnitude.docbook
-/usr/share/doc/HTML/ca/kstars/media-playback-pause.png
-/usr/share/doc/HTML/ca/kstars/media-playback-start.png
 /usr/share/doc/HTML/ca/kstars/meridian.docbook
 /usr/share/doc/HTML/ca/kstars/obsplanner.docbook
 /usr/share/doc/HTML/ca/kstars/open_dialog_ldn.png
@@ -900,9 +886,6 @@ popd
 /usr/share/doc/HTML/ca/kstars/satellites_tab.png
 /usr/share/doc/HTML/ca/kstars/screen1.png
 /usr/share/doc/HTML/ca/kstars/scriptbuilder.docbook
-/usr/share/doc/HTML/ca/kstars/security-high.png
-/usr/share/doc/HTML/ca/kstars/security-low.png
-/usr/share/doc/HTML/ca/kstars/security-medium.png
 /usr/share/doc/HTML/ca/kstars/sidereal.docbook
 /usr/share/doc/HTML/ca/kstars/skycoords.docbook
 /usr/share/doc/HTML/ca/kstars/solarsys.docbook
@@ -915,9 +898,6 @@ popd
 /usr/share/doc/HTML/ca/kstars/timezones.docbook
 /usr/share/doc/HTML/ca/kstars/tools.docbook
 /usr/share/doc/HTML/ca/kstars/utime.docbook
-/usr/share/doc/HTML/ca/kstars/view-filter.png
-/usr/share/doc/HTML/ca/kstars/view-fullscreen.png
-/usr/share/doc/HTML/ca/kstars/view-refresh.png
 /usr/share/doc/HTML/ca/kstars/viewops.png
 /usr/share/doc/HTML/ca/kstars/wut.docbook
 /usr/share/doc/HTML/ca/kstars/wut.png
@@ -1668,7 +1648,6 @@ popd
 /usr/share/doc/HTML/uk/kstars/Delete_all_images.png
 /usr/share/doc/HTML/uk/kstars/KStars_Neptune.png
 /usr/share/doc/HTML/uk/kstars/Savin_session.png
-/usr/share/doc/HTML/uk/kstars/aavso.png
 /usr/share/doc/HTML/uk/kstars/ai-contents.docbook
 /usr/share/doc/HTML/uk/kstars/alpha.png
 /usr/share/doc/HTML/uk/kstars/altvstime.docbook
@@ -1680,7 +1659,6 @@ popd
 /usr/share/doc/HTML/uk/kstars/calc-angdist.png
 /usr/share/doc/HTML/uk/kstars/calc-apcoords.docbook
 /usr/share/doc/HTML/uk/kstars/calc-apcoords.png
-/usr/share/doc/HTML/uk/kstars/calc-appcoords.png
 /usr/share/doc/HTML/uk/kstars/calc-dayduration.docbook
 /usr/share/doc/HTML/uk/kstars/calc-daylength.png
 /usr/share/doc/HTML/uk/kstars/calc-ecliptic.docbook

@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x6D9CE2AEE028C4F3 (mutlaqja@ikarustech.com)
 #
 Name     : kstars
-Version  : 3.5.1
-Release  : 9
-URL      : https://download.kde.org/stable/kstars/kstars-3.5.1.tar.xz
-Source0  : https://download.kde.org/stable/kstars/kstars-3.5.1.tar.xz
-Source1  : https://download.kde.org/stable/kstars/kstars-3.5.1.tar.xz.sig
+Version  : 3.5.2
+Release  : 10
+URL      : https://download.kde.org/stable/kstars/kstars-3.5.2.tar.xz
+Source0  : https://download.kde.org/stable/kstars/kstars-3.5.2.tar.xz
+Source1  : https://download.kde.org/stable/kstars/kstars-3.5.2.tar.xz.sig
 Summary  : Free, open source, cross-platform Astronomy Software
 Group    : Development/Tools
 License  : BSD-3-Clause CC-BY-SA-4.0 GFDL-1.2 GPL-2.0 LGPL-3.0 MIT SGI-B-2.0
@@ -106,15 +106,15 @@ locales components for the kstars package.
 
 
 %prep
-%setup -q -n kstars-3.5.1
-cd %{_builddir}/kstars-3.5.1
+%setup -q -n kstars-3.5.2
+cd %{_builddir}/kstars-3.5.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1610065406
+export SOURCE_DATE_EPOCH=1618693058
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -134,16 +134,16 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test
 
 %install
-export SOURCE_DATE_EPOCH=1610065406
+export SOURCE_DATE_EPOCH=1618693058
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kstars
-cp %{_builddir}/kstars-3.5.1/COPYING %{buildroot}/usr/share/package-licenses/kstars/d357e60aa8efd63b4475c3363700ba54f9a71343
-cp %{_builddir}/kstars-3.5.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/kstars/fcbf818f92ef8679a88f3778b12b4c8b5810545b
-cp %{_builddir}/kstars-3.5.1/LICENSE_OpenNGC %{buildroot}/usr/share/package-licenses/kstars/9993108f28ba106942c5eca4aaa886d2e047159b
-cp %{_builddir}/kstars-3.5.1/kstars/fitsviewer/sep/BSD_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/5129b47bd80d27f5072646a5d4328dae5c88c534
-cp %{_builddir}/kstars-3.5.1/kstars/fitsviewer/sep/LGPL_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/f45ee1c765646813b442ca58de72e20a64a7ddba
-cp %{_builddir}/kstars-3.5.1/kstars/fitsviewer/sep/MIT_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/2fd1ad172d946b70d2a94c6d9d37246a483332c1
-cp %{_builddir}/kstars-3.5.1/kstars/libtess/src/LICENSE %{buildroot}/usr/share/package-licenses/kstars/c05415620bd80bf577b697c89b30882d7ba3cc8d
+cp %{_builddir}/kstars-3.5.2/COPYING %{buildroot}/usr/share/package-licenses/kstars/d357e60aa8efd63b4475c3363700ba54f9a71343
+cp %{_builddir}/kstars-3.5.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/kstars/fcbf818f92ef8679a88f3778b12b4c8b5810545b
+cp %{_builddir}/kstars-3.5.2/LICENSE_OpenNGC %{buildroot}/usr/share/package-licenses/kstars/9993108f28ba106942c5eca4aaa886d2e047159b
+cp %{_builddir}/kstars-3.5.2/kstars/fitsviewer/sep/BSD_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/5129b47bd80d27f5072646a5d4328dae5c88c534
+cp %{_builddir}/kstars-3.5.2/kstars/fitsviewer/sep/LGPL_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/f45ee1c765646813b442ca58de72e20a64a7ddba
+cp %{_builddir}/kstars-3.5.2/kstars/fitsviewer/sep/MIT_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/2fd1ad172d946b70d2a94c6d9d37246a483332c1
+cp %{_builddir}/kstars-3.5.2/kstars/libtess/src/LICENSE %{buildroot}/usr/share/package-licenses/kstars/c05415620bd80bf577b697c89b30882d7ba3cc8d
 pushd clr-build
 %make_install
 popd
@@ -1573,6 +1573,7 @@ popd
 /usr/share/doc/HTML/sv/kstars/dumpmode.docbook
 /usr/share/doc/HTML/sv/kstars/ecliptic.docbook
 /usr/share/doc/HTML/sv/kstars/ekos-align.docbook
+/usr/share/doc/HTML/sv/kstars/ekos-analyze.docbook
 /usr/share/doc/HTML/sv/kstars/ekos-capture.docbook
 /usr/share/doc/HTML/sv/kstars/ekos-fits-viewer.docbook
 /usr/share/doc/HTML/sv/kstars/ekos-focus.docbook

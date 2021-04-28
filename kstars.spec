@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x6D9CE2AEE028C4F3 (mutlaqja@ikarustech.com)
 #
 Name     : kstars
-Version  : 3.5.2
-Release  : 10
-URL      : https://download.kde.org/stable/kstars/kstars-3.5.2.tar.xz
-Source0  : https://download.kde.org/stable/kstars/kstars-3.5.2.tar.xz
-Source1  : https://download.kde.org/stable/kstars/kstars-3.5.2.tar.xz.sig
+Version  : 3.5.3
+Release  : 11
+URL      : https://download.kde.org/stable/kstars/kstars-3.5.3.tar.xz
+Source0  : https://download.kde.org/stable/kstars/kstars-3.5.3.tar.xz
+Source1  : https://download.kde.org/stable/kstars/kstars-3.5.3.tar.xz.sig
 Summary  : Free, open source, cross-platform Astronomy Software
 Group    : Development/Tools
 License  : BSD-3-Clause CC-BY-SA-4.0 GFDL-1.2 GPL-2.0 LGPL-3.0 MIT SGI-B-2.0
@@ -106,15 +106,15 @@ locales components for the kstars package.
 
 
 %prep
-%setup -q -n kstars-3.5.2
-cd %{_builddir}/kstars-3.5.2
+%setup -q -n kstars-3.5.3
+cd %{_builddir}/kstars-3.5.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1618693058
+export SOURCE_DATE_EPOCH=1619645620
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -134,16 +134,16 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test
 
 %install
-export SOURCE_DATE_EPOCH=1618693058
+export SOURCE_DATE_EPOCH=1619645620
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kstars
-cp %{_builddir}/kstars-3.5.2/COPYING %{buildroot}/usr/share/package-licenses/kstars/d357e60aa8efd63b4475c3363700ba54f9a71343
-cp %{_builddir}/kstars-3.5.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/kstars/fcbf818f92ef8679a88f3778b12b4c8b5810545b
-cp %{_builddir}/kstars-3.5.2/LICENSE_OpenNGC %{buildroot}/usr/share/package-licenses/kstars/9993108f28ba106942c5eca4aaa886d2e047159b
-cp %{_builddir}/kstars-3.5.2/kstars/fitsviewer/sep/BSD_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/5129b47bd80d27f5072646a5d4328dae5c88c534
-cp %{_builddir}/kstars-3.5.2/kstars/fitsviewer/sep/LGPL_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/f45ee1c765646813b442ca58de72e20a64a7ddba
-cp %{_builddir}/kstars-3.5.2/kstars/fitsviewer/sep/MIT_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/2fd1ad172d946b70d2a94c6d9d37246a483332c1
-cp %{_builddir}/kstars-3.5.2/kstars/libtess/src/LICENSE %{buildroot}/usr/share/package-licenses/kstars/c05415620bd80bf577b697c89b30882d7ba3cc8d
+cp %{_builddir}/kstars-3.5.3/COPYING %{buildroot}/usr/share/package-licenses/kstars/d357e60aa8efd63b4475c3363700ba54f9a71343
+cp %{_builddir}/kstars-3.5.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/kstars/fcbf818f92ef8679a88f3778b12b4c8b5810545b
+cp %{_builddir}/kstars-3.5.3/LICENSE_OpenNGC %{buildroot}/usr/share/package-licenses/kstars/9993108f28ba106942c5eca4aaa886d2e047159b
+cp %{_builddir}/kstars-3.5.3/kstars/fitsviewer/sep/BSD_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/5129b47bd80d27f5072646a5d4328dae5c88c534
+cp %{_builddir}/kstars-3.5.3/kstars/fitsviewer/sep/LGPL_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/f45ee1c765646813b442ca58de72e20a64a7ddba
+cp %{_builddir}/kstars-3.5.3/kstars/fitsviewer/sep/MIT_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/2fd1ad172d946b70d2a94c6d9d37246a483332c1
+cp %{_builddir}/kstars-3.5.3/kstars/libtess/src/LICENSE %{buildroot}/usr/share/package-licenses/kstars/c05415620bd80bf577b697c89b30882d7ba3cc8d
 pushd clr-build
 %make_install
 popd
@@ -1114,6 +1114,7 @@ popd
 /usr/share/doc/HTML/en/kstars/find.png
 /usr/share/doc/HTML/en/kstars/find2.png
 /usr/share/doc/HTML/en/kstars/fits_settings.png
+/usr/share/doc/HTML/en/kstars/fits_tab.png
 /usr/share/doc/HTML/en/kstars/fitsarea.png
 /usr/share/doc/HTML/en/kstars/fitsviewer.docbook
 /usr/share/doc/HTML/en/kstars/fitsviewer.png
@@ -1217,6 +1218,7 @@ popd
 /usr/share/doc/HTML/en/kstars/stars.docbook
 /usr/share/doc/HTML/en/kstars/supernovae_tab.png
 /usr/share/doc/HTML/en/kstars/telescopes.docbook
+/usr/share/doc/HTML/en/kstars/terrain_tab.png
 /usr/share/doc/HTML/en/kstars/timezones.docbook
 /usr/share/doc/HTML/en/kstars/tools.docbook
 /usr/share/doc/HTML/en/kstars/utime.docbook
@@ -1226,6 +1228,7 @@ popd
 /usr/share/doc/HTML/en/kstars/viewops.png
 /usr/share/doc/HTML/en/kstars/wut.docbook
 /usr/share/doc/HTML/en/kstars/wut.png
+/usr/share/doc/HTML/en/kstars/xplanet_tab.png
 /usr/share/doc/HTML/en/kstars/zenith.docbook
 /usr/share/doc/HTML/es/kstars/ai-contents.docbook
 /usr/share/doc/HTML/es/kstars/altvstime.docbook
@@ -1654,6 +1657,7 @@ popd
 /usr/share/doc/HTML/uk/kstars/Delete_all_images.png
 /usr/share/doc/HTML/uk/kstars/KStars_Neptune.png
 /usr/share/doc/HTML/uk/kstars/Savin_session.png
+/usr/share/doc/HTML/uk/kstars/advanced_tab.png
 /usr/share/doc/HTML/uk/kstars/ai-contents.docbook
 /usr/share/doc/HTML/uk/kstars/alpha.png
 /usr/share/doc/HTML/uk/kstars/altvstime.docbook
@@ -1687,6 +1691,7 @@ popd
 /usr/share/doc/HTML/uk/kstars/cequator.docbook
 /usr/share/doc/HTML/uk/kstars/color_indices.png
 /usr/share/doc/HTML/uk/kstars/colorandtemp.docbook
+/usr/share/doc/HTML/uk/kstars/colors_tab.png
 /usr/share/doc/HTML/uk/kstars/commands.docbook
 /usr/share/doc/HTML/uk/kstars/config.docbook
 /usr/share/doc/HTML/uk/kstars/cosmicdist.docbook
@@ -1712,6 +1717,7 @@ popd
 /usr/share/doc/HTML/uk/kstars/ekos-tutorials.docbook
 /usr/share/doc/HTML/uk/kstars/ekos-user-interface.docbook
 /usr/share/doc/HTML/uk/kstars/ekos.docbook
+/usr/share/doc/HTML/uk/kstars/ekos_tab.png
 /usr/share/doc/HTML/uk/kstars/ellipticalgalaxies.docbook
 /usr/share/doc/HTML/uk/kstars/epoch.docbook
 /usr/share/doc/HTML/uk/kstars/equinox.docbook
@@ -1719,6 +1725,7 @@ popd
 /usr/share/doc/HTML/uk/kstars/execute_session_the_nt.png
 /usr/share/doc/HTML/uk/kstars/eyepieceview.docbook
 /usr/share/doc/HTML/uk/kstars/faq.docbook
+/usr/share/doc/HTML/uk/kstars/fits_tab.png
 /usr/share/doc/HTML/uk/kstars/fitsarea.png
 /usr/share/doc/HTML/uk/kstars/fitsviewer.docbook
 /usr/share/doc/HTML/uk/kstars/flux.docbook
@@ -1727,12 +1734,14 @@ popd
 /usr/share/doc/HTML/uk/kstars/geocoords.docbook
 /usr/share/doc/HTML/uk/kstars/geolocator.png
 /usr/share/doc/HTML/uk/kstars/greatcircle.docbook
+/usr/share/doc/HTML/uk/kstars/guides_tab.png
 /usr/share/doc/HTML/uk/kstars/hips.docbook
 /usr/share/doc/HTML/uk/kstars/horizon.docbook
 /usr/share/doc/HTML/uk/kstars/hourangle.docbook
 /usr/share/doc/HTML/uk/kstars/index.cache.bz2
 /usr/share/doc/HTML/uk/kstars/index.docbook
 /usr/share/doc/HTML/uk/kstars/indi.docbook
+/usr/share/doc/HTML/uk/kstars/indi_tab.png
 /usr/share/doc/HTML/uk/kstars/jmoons.docbook
 /usr/share/doc/HTML/uk/kstars/jmoons.png
 /usr/share/doc/HTML/uk/kstars/julianday.docbook
@@ -1749,6 +1758,7 @@ popd
 /usr/share/doc/HTML/uk/kstars/precession.docbook
 /usr/share/doc/HTML/uk/kstars/quicktour.docbook
 /usr/share/doc/HTML/uk/kstars/retrograde.docbook
+/usr/share/doc/HTML/uk/kstars/satellites_tab.png
 /usr/share/doc/HTML/uk/kstars/scriptbuilder.docbook
 /usr/share/doc/HTML/uk/kstars/scriptbuilder.png
 /usr/share/doc/HTML/uk/kstars/sds.png
@@ -1756,15 +1766,19 @@ popd
 /usr/share/doc/HTML/uk/kstars/skycoords.docbook
 /usr/share/doc/HTML/uk/kstars/solarsys.docbook
 /usr/share/doc/HTML/uk/kstars/solarsystem.png
+/usr/share/doc/HTML/uk/kstars/solarsystem_tab.png
 /usr/share/doc/HTML/uk/kstars/spiralgalaxies.docbook
 /usr/share/doc/HTML/uk/kstars/stars.docbook
+/usr/share/doc/HTML/uk/kstars/supernovae_tab.png
 /usr/share/doc/HTML/uk/kstars/telescopes.docbook
+/usr/share/doc/HTML/uk/kstars/terrain_tab.png
 /usr/share/doc/HTML/uk/kstars/timezones.docbook
 /usr/share/doc/HTML/uk/kstars/tools.docbook
 /usr/share/doc/HTML/uk/kstars/utime.docbook
 /usr/share/doc/HTML/uk/kstars/viewops.png
 /usr/share/doc/HTML/uk/kstars/wut.docbook
 /usr/share/doc/HTML/uk/kstars/wut.png
+/usr/share/doc/HTML/uk/kstars/xplanet_tab.png
 /usr/share/doc/HTML/uk/kstars/zenith.docbook
 
 %files license

@@ -5,14 +5,14 @@
 # Source0 file verified with key 0x6D9CE2AEE028C4F3 (mutlaqja@ikarustech.com)
 #
 Name     : kstars
-Version  : 3.5.5
-Release  : 12
-URL      : https://download.kde.org/stable/kstars/kstars-3.5.5.tar.xz
-Source0  : https://download.kde.org/stable/kstars/kstars-3.5.5.tar.xz
-Source1  : https://download.kde.org/stable/kstars/kstars-3.5.5.tar.xz.sig
+Version  : 3.5.7
+Release  : 13
+URL      : https://download.kde.org/stable/kstars/kstars-3.5.7.tar.xz
+Source0  : https://download.kde.org/stable/kstars/kstars-3.5.7.tar.xz
+Source1  : https://download.kde.org/stable/kstars/kstars-3.5.7.tar.xz.sig
 Summary  : Free, open source, cross-platform Astronomy Software
 Group    : Development/Tools
-License  : BSD-3-Clause CC-BY-SA-4.0 GFDL-1.2 GPL-2.0 LGPL-3.0 MIT SGI-B-2.0
+License  : Apache-2.0 BSD-3-Clause CC-BY-SA-4.0 GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
 Requires: kstars-bin = %{version}-%{release}
 Requires: kstars-data = %{version}-%{release}
 Requires: kstars-license = %{version}-%{release}
@@ -107,15 +107,15 @@ locales components for the kstars package.
 
 
 %prep
-%setup -q -n kstars-3.5.5
-cd %{_builddir}/kstars-3.5.5
+%setup -q -n kstars-3.5.7
+cd %{_builddir}/kstars-3.5.7
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1634581249
+export SOURCE_DATE_EPOCH=1642622206
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -128,16 +128,21 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1634581249
+export SOURCE_DATE_EPOCH=1642622206
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kstars
-cp %{_builddir}/kstars-3.5.5/COPYING %{buildroot}/usr/share/package-licenses/kstars/d357e60aa8efd63b4475c3363700ba54f9a71343
-cp %{_builddir}/kstars-3.5.5/COPYING.DOC %{buildroot}/usr/share/package-licenses/kstars/fcbf818f92ef8679a88f3778b12b4c8b5810545b
-cp %{_builddir}/kstars-3.5.5/LICENSE_OpenNGC %{buildroot}/usr/share/package-licenses/kstars/9993108f28ba106942c5eca4aaa886d2e047159b
-cp %{_builddir}/kstars-3.5.5/kstars/fitsviewer/sep/BSD_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/5129b47bd80d27f5072646a5d4328dae5c88c534
-cp %{_builddir}/kstars-3.5.5/kstars/fitsviewer/sep/LGPL_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/f45ee1c765646813b442ca58de72e20a64a7ddba
-cp %{_builddir}/kstars-3.5.5/kstars/fitsviewer/sep/MIT_LICENSE.txt %{buildroot}/usr/share/package-licenses/kstars/2fd1ad172d946b70d2a94c6d9d37246a483332c1
-cp %{_builddir}/kstars-3.5.5/kstars/libtess/src/LICENSE %{buildroot}/usr/share/package-licenses/kstars/c05415620bd80bf577b697c89b30882d7ba3cc8d
+cp %{_builddir}/kstars-3.5.7/LICENSES/Apache-2.0.txt %{buildroot}/usr/share/package-licenses/kstars/313c0a37067265b444271406894115709e4ae632
+cp %{_builddir}/kstars-3.5.7/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kstars/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/kstars-3.5.7/LICENSES/CC-BY-SA-4.0.txt %{buildroot}/usr/share/package-licenses/kstars/f26cccd93362d640ef2c05d1c52b5efe1620a9b2
+cp %{_builddir}/kstars-3.5.7/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc
+cp %{_builddir}/kstars-3.5.7/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/kstars-3.5.7/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kstars/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
+cp %{_builddir}/kstars-3.5.7/LICENSES/GPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
+cp %{_builddir}/kstars-3.5.7/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/kstars-3.5.7/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+cp %{_builddir}/kstars-3.5.7/LICENSES/LGPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/49e61f7864169f2e356c11a17422d7d20d74b40f
+cp %{_builddir}/kstars-3.5.7/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/kstars/adadb67a9875aeeac285309f1eab6e47d9ee08a7
+cp %{_builddir}/kstars-3.5.7/LICENSES/SGI-B-2.0.txt %{buildroot}/usr/share/package-licenses/kstars/9cca714cb5626a0c274dcf0c799c56a3aa0519d0
 pushd clr-build
 %make_install
 popd
@@ -179,6 +184,7 @@ popd
 /usr/share/kstars/classic.colors
 /usr/share/kstars/clines.dat
 /usr/share/kstars/cnames.dat
+/usr/share/kstars/cometels.json.gz
 /usr/share/kstars/comets.dat
 /usr/share/kstars/defaultflag.gif
 /usr/share/kstars/earth.B0.vsop
@@ -816,6 +822,7 @@ popd
 /usr/share/doc/HTML/ca/kstars/calculator.docbook
 /usr/share/doc/HTML/ca/kstars/catalog_details.png
 /usr/share/doc/HTML/ca/kstars/cequator.docbook
+/usr/share/doc/HTML/ca/kstars/color_editor.png
 /usr/share/doc/HTML/ca/kstars/color_indices.png
 /usr/share/doc/HTML/ca/kstars/colorandtemp.docbook
 /usr/share/doc/HTML/ca/kstars/colors_page.png
@@ -1010,6 +1017,10 @@ popd
 /usr/share/doc/HTML/en/kstars/ekos-logs.docbook
 /usr/share/doc/HTML/en/kstars/ekos-profile-editor.docbook
 /usr/share/doc/HTML/en/kstars/ekos-profile-wizard.docbook
+/usr/share/doc/HTML/en/kstars/ekos-scheduler-mosaic-atpole.png
+/usr/share/doc/HTML/en/kstars/ekos-scheduler-mosaic-rotation.png
+/usr/share/doc/HTML/en/kstars/ekos-scheduler-mosaic-std.png
+/usr/share/doc/HTML/en/kstars/ekos-scheduler-mosaic-threequarteroverlap.png
 /usr/share/doc/HTML/en/kstars/ekos-scheduler.docbook
 /usr/share/doc/HTML/en/kstars/ekos-setup.docbook
 /usr/share/doc/HTML/en/kstars/ekos-tutorials.docbook
@@ -1719,13 +1730,17 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/kstars/2fd1ad172d946b70d2a94c6d9d37246a483332c1
-/usr/share/package-licenses/kstars/5129b47bd80d27f5072646a5d4328dae5c88c534
-/usr/share/package-licenses/kstars/9993108f28ba106942c5eca4aaa886d2e047159b
-/usr/share/package-licenses/kstars/c05415620bd80bf577b697c89b30882d7ba3cc8d
-/usr/share/package-licenses/kstars/d357e60aa8efd63b4475c3363700ba54f9a71343
-/usr/share/package-licenses/kstars/f45ee1c765646813b442ca58de72e20a64a7ddba
-/usr/share/package-licenses/kstars/fcbf818f92ef8679a88f3778b12b4c8b5810545b
+/usr/share/package-licenses/kstars/313c0a37067265b444271406894115709e4ae632
+/usr/share/package-licenses/kstars/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+/usr/share/package-licenses/kstars/49e61f7864169f2e356c11a17422d7d20d74b40f
+/usr/share/package-licenses/kstars/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+/usr/share/package-licenses/kstars/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+/usr/share/package-licenses/kstars/9cca714cb5626a0c274dcf0c799c56a3aa0519d0
+/usr/share/package-licenses/kstars/a4c60b3fefda228cd7439d3565df043192fef137
+/usr/share/package-licenses/kstars/adadb67a9875aeeac285309f1eab6e47d9ee08a7
+/usr/share/package-licenses/kstars/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
+/usr/share/package-licenses/kstars/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc
+/usr/share/package-licenses/kstars/f26cccd93362d640ef2c05d1c52b5efe1620a9b2
 
 %files locales -f kstars.lang
 %defattr(-,root,root,-)

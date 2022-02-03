@@ -6,7 +6,7 @@
 #
 Name     : kstars
 Version  : 3.5.7
-Release  : 13
+Release  : 14
 URL      : https://download.kde.org/stable/kstars/kstars-3.5.7.tar.xz
 Source0  : https://download.kde.org/stable/kstars/kstars-3.5.7.tar.xz
 Source1  : https://download.kde.org/stable/kstars/kstars-3.5.7.tar.xz.sig
@@ -36,7 +36,7 @@ BuildRequires : pkgconfig(libraw)
 BuildRequires : pkgconfig(libraw_r)
 BuildRequires : pkgconfig(libsecret-1)
 BuildRequires : pkgconfig(wcslib)
-BuildRequires : pybind11-python3
+BuildRequires : pypi(pybind11)
 BuildRequires : qtbase-dev
 BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qtdatavis3d-dev
@@ -115,7 +115,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1642622206
+export SOURCE_DATE_EPOCH=1643912097
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -128,7 +128,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1642622206
+export SOURCE_DATE_EPOCH=1643912097
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kstars
 cp %{_builddir}/kstars-3.5.7/LICENSES/Apache-2.0.txt %{buildroot}/usr/share/package-licenses/kstars/313c0a37067265b444271406894115709e4ae632

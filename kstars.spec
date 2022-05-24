@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x6D9CE2AEE028C4F3 (mutlaqja@ikarustech.com)
 #
 Name     : kstars
-Version  : 3.5.8
-Release  : 15
-URL      : https://download.kde.org/stable/kstars/kstars-3.5.8.tar.xz
-Source0  : https://download.kde.org/stable/kstars/kstars-3.5.8.tar.xz
-Source1  : https://download.kde.org/stable/kstars/kstars-3.5.8.tar.xz.sig
+Version  : 3.5.9
+Release  : 16
+URL      : https://download.kde.org/stable/kstars/kstars-3.5.9.tar.xz
+Source0  : https://download.kde.org/stable/kstars/kstars-3.5.9.tar.xz
+Source1  : https://download.kde.org/stable/kstars/kstars-3.5.9.tar.xz.sig
 Summary  : Free, open source, cross-platform Astronomy Software
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause CC-BY-SA-4.0 GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT SGI-B-2.0
@@ -23,7 +23,6 @@ BuildRequires : buildreq-distutils3
 BuildRequires : buildreq-kde
 BuildRequires : cfitsio-dev
 BuildRequires : eigen-data
-BuildRequires : eigen-dev
 BuildRequires : extra-cmake-modules-data
 BuildRequires : glibc-dev
 BuildRequires : gsl-dev
@@ -32,6 +31,7 @@ BuildRequires : knotifyconfig-dev
 BuildRequires : kplotting-dev
 BuildRequires : mesa-dev
 BuildRequires : pkg-config
+BuildRequires : pkgconfig(eigen3)
 BuildRequires : pkgconfig(libraw)
 BuildRequires : pkgconfig(libraw_r)
 BuildRequires : pkgconfig(libsecret-1)
@@ -107,15 +107,15 @@ locales components for the kstars package.
 
 
 %prep
-%setup -q -n kstars-3.5.8
-cd %{_builddir}/kstars-3.5.8
+%setup -q -n kstars-3.5.9
+cd %{_builddir}/kstars-3.5.9
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1647630718
+export SOURCE_DATE_EPOCH=1653429966
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -128,21 +128,21 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1647630718
+export SOURCE_DATE_EPOCH=1653429966
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kstars
-cp %{_builddir}/kstars-3.5.8/LICENSES/Apache-2.0.txt %{buildroot}/usr/share/package-licenses/kstars/313c0a37067265b444271406894115709e4ae632
-cp %{_builddir}/kstars-3.5.8/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kstars/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/kstars-3.5.8/LICENSES/CC-BY-SA-4.0.txt %{buildroot}/usr/share/package-licenses/kstars/f26cccd93362d640ef2c05d1c52b5efe1620a9b2
-cp %{_builddir}/kstars-3.5.8/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc
-cp %{_builddir}/kstars-3.5.8/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/kstars-3.5.8/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kstars/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
-cp %{_builddir}/kstars-3.5.8/LICENSES/GPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
-cp %{_builddir}/kstars-3.5.8/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/a4c60b3fefda228cd7439d3565df043192fef137
-cp %{_builddir}/kstars-3.5.8/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
-cp %{_builddir}/kstars-3.5.8/LICENSES/LGPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/49e61f7864169f2e356c11a17422d7d20d74b40f
-cp %{_builddir}/kstars-3.5.8/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/kstars/adadb67a9875aeeac285309f1eab6e47d9ee08a7
-cp %{_builddir}/kstars-3.5.8/LICENSES/SGI-B-2.0.txt %{buildroot}/usr/share/package-licenses/kstars/9cca714cb5626a0c274dcf0c799c56a3aa0519d0
+cp %{_builddir}/kstars-3.5.9/LICENSES/Apache-2.0.txt %{buildroot}/usr/share/package-licenses/kstars/313c0a37067265b444271406894115709e4ae632
+cp %{_builddir}/kstars-3.5.9/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kstars/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/kstars-3.5.9/LICENSES/CC-BY-SA-4.0.txt %{buildroot}/usr/share/package-licenses/kstars/f26cccd93362d640ef2c05d1c52b5efe1620a9b2
+cp %{_builddir}/kstars-3.5.9/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc
+cp %{_builddir}/kstars-3.5.9/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/kstars-3.5.9/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kstars/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
+cp %{_builddir}/kstars-3.5.9/LICENSES/GPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
+cp %{_builddir}/kstars-3.5.9/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/kstars-3.5.9/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+cp %{_builddir}/kstars-3.5.9/LICENSES/LGPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/49e61f7864169f2e356c11a17422d7d20d74b40f
+cp %{_builddir}/kstars-3.5.9/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/kstars/adadb67a9875aeeac285309f1eab6e47d9ee08a7
+cp %{_builddir}/kstars-3.5.9/LICENSES/SGI-B-2.0.txt %{buildroot}/usr/share/package-licenses/kstars/9cca714cb5626a0c274dcf0c799c56a3aa0519d0
 pushd clr-build
 %make_install
 popd
@@ -924,6 +924,86 @@ popd
 /usr/share/doc/HTML/ca/kstars/wut.png
 /usr/share/doc/HTML/ca/kstars/xplanet_page.png
 /usr/share/doc/HTML/ca/kstars/zenith.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/ai-contents.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/altvstime.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/astroinfo.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/blackbody.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/calc-angdist.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/calc-apcoords.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/calc-dayduration.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/calc-ecliptic.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/calc-eqgal.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/calc-equinox.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/calc-geodetic.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/calc-horizontal.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/calc-julianday.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/calc-planetcoords.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/calc-sidereal.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/calculator.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/cequator.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/colorandtemp.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/commands.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/config.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/cosmicdist.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/cpoles.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/credits.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/csphere.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/darkmatter.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/details.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/dumpmode.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/ecliptic.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/ekos-align.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/ekos-analyze.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/ekos-capture.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/ekos-focus.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/ekos-guide.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/ekos-logs.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/ekos-profile-editor.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/ekos-profile-wizard.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/ekos-scheduler.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/ekos-setup.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/ekos-tutorials.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/ekos-user-interface.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/ekos.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/ellipticalgalaxies.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/epoch.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/equinox.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/eyepieceview.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/faq.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/fitsviewer.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/flux.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/geocoords.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/greatcircle.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/hips.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/horizon.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/hourangle.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/index.cache.bz2
+/usr/share/doc/HTML/ca@valencia/kstars/index.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/indi.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/jmoons.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/julianday.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/leapyear.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/lightcurves.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/luminosity.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/magnitude.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/meridian.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/obsplanner.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/parallax.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/precession.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/quicktour.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/retrograde.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/scriptbuilder.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/sidereal.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/skycoords.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/solarsys.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/spiralgalaxies.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/stars.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/telescopes.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/timezones.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/tools.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/utime.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/wut.docbook
+/usr/share/doc/HTML/ca@valencia/kstars/zenith.docbook
 /usr/share/doc/HTML/en/kstars/Add_Object_to_Session_plan.png
 /usr/share/doc/HTML/en/kstars/Another_way4.png
 /usr/share/doc/HTML/en/kstars/Another_way5.png

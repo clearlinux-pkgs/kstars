@@ -6,7 +6,7 @@
 #
 Name     : kstars
 Version  : 3.5.9
-Release  : 16
+Release  : 17
 URL      : https://download.kde.org/stable/kstars/kstars-3.5.9.tar.xz
 Source0  : https://download.kde.org/stable/kstars/kstars-3.5.9.tar.xz
 Source1  : https://download.kde.org/stable/kstars/kstars-3.5.9.tar.xz.sig

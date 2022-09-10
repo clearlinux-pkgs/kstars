@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x6D9CE2AEE028C4F3 (mutlaqja@ikarustech.com)
 #
 Name     : kstars
-Version  : 3.5.9
-Release  : 17
-URL      : https://download.kde.org/stable/kstars/kstars-3.5.9.tar.xz
-Source0  : https://download.kde.org/stable/kstars/kstars-3.5.9.tar.xz
-Source1  : https://download.kde.org/stable/kstars/kstars-3.5.9.tar.xz.sig
+Version  : 3.6.0
+Release  : 18
+URL      : https://download.kde.org/stable/kstars/kstars-3.6.0.tar.xz
+Source0  : https://download.kde.org/stable/kstars/kstars-3.6.0.tar.xz
+Source1  : https://download.kde.org/stable/kstars/kstars-3.6.0.tar.xz.sig
 Summary  : Free, open source, cross-platform Astronomy Software
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause CC-BY-SA-4.0 GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT SGI-B-2.0
@@ -107,15 +107,15 @@ locales components for the kstars package.
 
 
 %prep
-%setup -q -n kstars-3.5.9
-cd %{_builddir}/kstars-3.5.9
+%setup -q -n kstars-3.6.0
+cd %{_builddir}/kstars-3.6.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1653429966
+export SOURCE_DATE_EPOCH=1662774344
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -128,21 +128,21 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1653429966
+export SOURCE_DATE_EPOCH=1662774344
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kstars
-cp %{_builddir}/kstars-3.5.9/LICENSES/Apache-2.0.txt %{buildroot}/usr/share/package-licenses/kstars/313c0a37067265b444271406894115709e4ae632
-cp %{_builddir}/kstars-3.5.9/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kstars/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/kstars-3.5.9/LICENSES/CC-BY-SA-4.0.txt %{buildroot}/usr/share/package-licenses/kstars/f26cccd93362d640ef2c05d1c52b5efe1620a9b2
-cp %{_builddir}/kstars-3.5.9/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc
-cp %{_builddir}/kstars-3.5.9/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/kstars-3.5.9/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kstars/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
-cp %{_builddir}/kstars-3.5.9/LICENSES/GPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
-cp %{_builddir}/kstars-3.5.9/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/a4c60b3fefda228cd7439d3565df043192fef137
-cp %{_builddir}/kstars-3.5.9/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
-cp %{_builddir}/kstars-3.5.9/LICENSES/LGPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/49e61f7864169f2e356c11a17422d7d20d74b40f
-cp %{_builddir}/kstars-3.5.9/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/kstars/adadb67a9875aeeac285309f1eab6e47d9ee08a7
-cp %{_builddir}/kstars-3.5.9/LICENSES/SGI-B-2.0.txt %{buildroot}/usr/share/package-licenses/kstars/9cca714cb5626a0c274dcf0c799c56a3aa0519d0
+cp %{_builddir}/kstars-%{version}/LICENSES/Apache-2.0.txt %{buildroot}/usr/share/package-licenses/kstars/313c0a37067265b444271406894115709e4ae632 || :
+cp %{_builddir}/kstars-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kstars/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
+cp %{_builddir}/kstars-%{version}/LICENSES/CC-BY-SA-4.0.txt %{buildroot}/usr/share/package-licenses/kstars/f26cccd93362d640ef2c05d1c52b5efe1620a9b2 || :
+cp %{_builddir}/kstars-%{version}/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc || :
+cp %{_builddir}/kstars-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/3e8971c6c5f16674958913a94a36b1ea7a00ac46 || :
+cp %{_builddir}/kstars-%{version}/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kstars/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f || :
+cp %{_builddir}/kstars-%{version}/LICENSES/GPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f || :
+cp %{_builddir}/kstars-%{version}/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/a4c60b3fefda228cd7439d3565df043192fef137 || :
+cp %{_builddir}/kstars-%{version}/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567 || :
+cp %{_builddir}/kstars-%{version}/LICENSES/LGPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/kstars/49e61f7864169f2e356c11a17422d7d20d74b40f || :
+cp %{_builddir}/kstars-%{version}/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/kstars/adadb67a9875aeeac285309f1eab6e47d9ee08a7 || :
+cp %{_builddir}/kstars-%{version}/LICENSES/SGI-B-2.0.txt %{buildroot}/usr/share/package-licenses/kstars/9cca714cb5626a0c274dcf0c799c56a3aa0519d0 || :
 pushd clr-build
 %make_install
 popd
@@ -208,7 +208,7 @@ popd
 /usr/share/kstars/earth.orbit
 /usr/share/kstars/ekoslive.png
 /usr/share/kstars/fr/info_url.dat
-/usr/share/kstars/geomap.png
+/usr/share/kstars/geomap.jpg
 /usr/share/kstars/glossary.xml
 /usr/share/kstars/image_url.dat
 /usr/share/kstars/indidrivers.xml
@@ -1137,16 +1137,23 @@ popd
 /usr/share/doc/HTML/en/kstars/fitsviewer.png
 /usr/share/doc/HTML/en/kstars/fitsviewer_embedded.png
 /usr/share/doc/HTML/en/kstars/fitsviewer_histogram.png
+/usr/share/doc/HTML/en/kstars/fitsviewer_selstat.png
 /usr/share/doc/HTML/en/kstars/flag-green.png
 /usr/share/doc/HTML/en/kstars/flag-red.png
 /usr/share/doc/HTML/en/kstars/flux.docbook
 /usr/share/doc/HTML/en/kstars/flux.png
 /usr/share/doc/HTML/en/kstars/flux1.png
 /usr/share/doc/HTML/en/kstars/flux2.png
+/usr/share/doc/HTML/en/kstars/focus_bad_focus.png
 /usr/share/doc/HTML/en/kstars/focus_ccdfw_group.png
+/usr/share/doc/HTML/en/kstars/focus_display.png
+/usr/share/doc/HTML/en/kstars/focus_good_focus.png
+/usr/share/doc/HTML/en/kstars/focus_mechanics.png
+/usr/share/doc/HTML/en/kstars/focus_process.png
 /usr/share/doc/HTML/en/kstars/focus_relative_profile.png
 /usr/share/doc/HTML/en/kstars/focus_settings.png
 /usr/share/doc/HTML/en/kstars/focus_vcurve.png
+/usr/share/doc/HTML/en/kstars/focus_vcurve_timeseries.png
 /usr/share/doc/HTML/en/kstars/focuser_group.png
 /usr/share/doc/HTML/en/kstars/fovdialog.png
 /usr/share/doc/HTML/en/kstars/geocoords.docbook
@@ -1196,6 +1203,12 @@ popd
 /usr/share/doc/HTML/en/kstars/media-playback-start.png
 /usr/share/doc/HTML/en/kstars/media-record.png
 /usr/share/doc/HTML/en/kstars/meridian.docbook
+/usr/share/doc/HTML/en/kstars/mosaic_adjust_grid.png
+/usr/share/doc/HTML/en/kstars/mosaic_close_pole.png
+/usr/share/doc/HTML/en/kstars/mosaic_confirm_equipment.png
+/usr/share/doc/HTML/en/kstars/mosaic_create_jobs.png
+/usr/share/doc/HTML/en/kstars/mosaic_planner.png
+/usr/share/doc/HTML/en/kstars/mosaic_select_grid.png
 /usr/share/doc/HTML/en/kstars/mosaic_wizard.png
 /usr/share/doc/HTML/en/kstars/newfov.png
 /usr/share/doc/HTML/en/kstars/object-rotate-right.png
@@ -1210,6 +1223,7 @@ popd
 /usr/share/doc/HTML/en/kstars/precession.docbook
 /usr/share/doc/HTML/en/kstars/process-stop.png
 /usr/share/doc/HTML/en/kstars/profile_editor.png
+/usr/share/doc/HTML/en/kstars/profile_editor_scripts.png
 /usr/share/doc/HTML/en/kstars/profile_wizard_done.png
 /usr/share/doc/HTML/en/kstars/profile_wizard_remote.png
 /usr/share/doc/HTML/en/kstars/profile_wizard_select.png

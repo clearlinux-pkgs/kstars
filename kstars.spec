@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x6D9CE2AEE028C4F3 (mutlaqja@ikarustech.com)
 #
 Name     : kstars
-Version  : 3.6.1
-Release  : 20
-URL      : https://download.kde.org/stable/kstars/kstars-3.6.1.tar.xz
-Source0  : https://download.kde.org/stable/kstars/kstars-3.6.1.tar.xz
-Source1  : https://download.kde.org/stable/kstars/kstars-3.6.1.tar.xz.sig
+Version  : 3.6.2
+Release  : 21
+URL      : https://download.kde.org/stable/kstars/kstars-3.6.2.tar.xz
+Source0  : https://download.kde.org/stable/kstars/kstars-3.6.2.tar.xz
+Source1  : https://download.kde.org/stable/kstars/kstars-3.6.2.tar.xz.sig
 Summary  : Free, open source, cross-platform Astronomy Software
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause CC-BY-SA-4.0 GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT SGI-B-2.0
@@ -107,15 +107,15 @@ locales components for the kstars package.
 
 
 %prep
-%setup -q -n kstars-3.6.1
-cd %{_builddir}/kstars-3.6.1
+%setup -q -n kstars-3.6.2
+cd %{_builddir}/kstars-3.6.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1664549820
+export SOURCE_DATE_EPOCH=1669825814
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -128,7 +128,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1664549820
+export SOURCE_DATE_EPOCH=1669825814
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kstars
 cp %{_builddir}/kstars-%{version}/LICENSES/Apache-2.0.txt %{buildroot}/usr/share/package-licenses/kstars/313c0a37067265b444271406894115709e4ae632 || :
@@ -924,114 +924,6 @@ popd
 /usr/share/doc/HTML/ca/kstars/wut.png
 /usr/share/doc/HTML/ca/kstars/xplanet_page.png
 /usr/share/doc/HTML/ca/kstars/zenith.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/add_object.png
-/usr/share/doc/HTML/ca@valencia/kstars/advanced_page.png
-/usr/share/doc/HTML/ca@valencia/kstars/ai-contents.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/altvstime.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/altvstime.png
-/usr/share/doc/HTML/ca@valencia/kstars/astroinfo.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/blackbody.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/calc-angdist.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/calc-apcoords.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/calc-dayduration.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/calc-ecliptic.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/calc-eqgal.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/calc-equinox.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/calc-geodetic.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/calc-horizontal.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/calc-julianday.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/calc-planetcoords.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/calc-sidereal.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/calculator.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/catalog_details.png
-/usr/share/doc/HTML/ca@valencia/kstars/cequator.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/color_editor.png
-/usr/share/doc/HTML/ca@valencia/kstars/colorandtemp.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/colors_page.png
-/usr/share/doc/HTML/ca@valencia/kstars/commands.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/config.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/cosmicdist.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/cpoles.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/create_catalog.png
-/usr/share/doc/HTML/ca@valencia/kstars/credits.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/csphere.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/csv_import.png
-/usr/share/doc/HTML/ca@valencia/kstars/darkmatter.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/detaildialog.png
-/usr/share/doc/HTML/ca@valencia/kstars/details.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/dso_manager.png
-/usr/share/doc/HTML/ca@valencia/kstars/dumpmode.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/ecliptic.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/ekos-align.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/ekos-analyze.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/ekos-capture.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/ekos-focus.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/ekos-guide.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/ekos-logs.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/ekos-profile-editor.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/ekos-profile-wizard.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/ekos-scheduler.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/ekos-setup.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/ekos-tutorials.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/ekos-user-interface.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/ekos.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/ekos_page.png
-/usr/share/doc/HTML/ca@valencia/kstars/ellipticalgalaxies.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/epoch.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/equinox.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/eyepieceview.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/faq.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/find.png
-/usr/share/doc/HTML/ca@valencia/kstars/find2.png
-/usr/share/doc/HTML/ca@valencia/kstars/fits_page.png
-/usr/share/doc/HTML/ca@valencia/kstars/fitsviewer.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/flux.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/fovdialog.png
-/usr/share/doc/HTML/ca@valencia/kstars/geocoords.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/geolocator.png
-/usr/share/doc/HTML/ca@valencia/kstars/greatcircle.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/guides_page.png
-/usr/share/doc/HTML/ca@valencia/kstars/hips.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/horizon.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/hourangle.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/index.cache.bz2
-/usr/share/doc/HTML/ca@valencia/kstars/index.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/indi.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/indi_page.png
-/usr/share/doc/HTML/ca@valencia/kstars/jmoons.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/julianday.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/kstars_horizon.png
-/usr/share/doc/HTML/ca@valencia/kstars/leapyear.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/lightcurves.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/luminosity.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/magnitude.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/meridian.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/newfov.png
-/usr/share/doc/HTML/ca@valencia/kstars/obsplanner.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/parallax.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/popup.png
-/usr/share/doc/HTML/ca@valencia/kstars/precession.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/quicktour.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/retrograde.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/satellites_page.png
-/usr/share/doc/HTML/ca@valencia/kstars/screen1.png
-/usr/share/doc/HTML/ca@valencia/kstars/scriptbuilder.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/sidereal.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/skycoords.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/solarsys.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/solarsystem_page.png
-/usr/share/doc/HTML/ca@valencia/kstars/spiralgalaxies.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/stars.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/supernovae_page.png
-/usr/share/doc/HTML/ca@valencia/kstars/telescopes.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/terrain_page.png
-/usr/share/doc/HTML/ca@valencia/kstars/timezones.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/tools.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/utime.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/viewops.png
-/usr/share/doc/HTML/ca@valencia/kstars/wut.docbook
-/usr/share/doc/HTML/ca@valencia/kstars/xplanet_page.png
-/usr/share/doc/HTML/ca@valencia/kstars/zenith.docbook
 /usr/share/doc/HTML/en/kstars/Add_Object_to_Session_plan.png
 /usr/share/doc/HTML/en/kstars/Another_way4.png
 /usr/share/doc/HTML/en/kstars/Another_way5.png
@@ -1243,6 +1135,7 @@ popd
 /usr/share/doc/HTML/en/kstars/obsplanner.docbook
 /usr/share/doc/HTML/en/kstars/open_dialog_ldn.png
 /usr/share/doc/HTML/en/kstars/open_ldn.png
+/usr/share/doc/HTML/en/kstars/optical_train_group.png
 /usr/share/doc/HTML/en/kstars/overwrite_catalog.png
 /usr/share/doc/HTML/en/kstars/parallax.docbook
 /usr/share/doc/HTML/en/kstars/polar_alignment_result.png

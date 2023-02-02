@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x6D9CE2AEE028C4F3 (mutlaqja@ikarustech.com)
 #
 Name     : kstars
-Version  : 3.6.2
-Release  : 23
-URL      : https://download.kde.org/stable/kstars/kstars-3.6.2.tar.xz
-Source0  : https://download.kde.org/stable/kstars/kstars-3.6.2.tar.xz
-Source1  : https://download.kde.org/stable/kstars/kstars-3.6.2.tar.xz.sig
+Version  : 3.6.3
+Release  : 24
+URL      : https://download.kde.org/stable/kstars/kstars-3.6.3.tar.xz
+Source0  : https://download.kde.org/stable/kstars/kstars-3.6.3.tar.xz
+Source1  : https://download.kde.org/stable/kstars/kstars-3.6.3.tar.xz.sig
 Summary  : Free, open source, cross-platform Astronomy Software
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause CC-BY-SA-4.0 GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT SGI-B-2.0
@@ -42,6 +42,9 @@ BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qtdatavis3d-dev
 BuildRequires : qtkeychain-dev
 BuildRequires : zlib-dev
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 KStars is free, open source, cross-platform Astronomy Software.
@@ -107,28 +110,28 @@ locales components for the kstars package.
 
 
 %prep
-%setup -q -n kstars-3.6.2
-cd %{_builddir}/kstars-3.6.2
+%setup -q -n kstars-3.6.3
+cd %{_builddir}/kstars-3.6.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1669825814
+export SOURCE_DATE_EPOCH=1675352318
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$FFLAGS -fno-lto "
-export FFLAGS="$FFLAGS -fno-lto "
-export CXXFLAGS="$CXXFLAGS -fno-lto "
+export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1669825814
+export SOURCE_DATE_EPOCH=1675352318
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kstars
 cp %{_builddir}/kstars-%{version}/LICENSES/Apache-2.0.txt %{buildroot}/usr/share/package-licenses/kstars/313c0a37067265b444271406894115709e4ae632 || :
@@ -1140,6 +1143,10 @@ popd
 /usr/share/doc/HTML/en/kstars/parallax.docbook
 /usr/share/doc/HTML/en/kstars/polar_alignment_result.png
 /usr/share/doc/HTML/en/kstars/polar_assistant_main.png
+/usr/share/doc/HTML/en/kstars/polar_assistant_main2.png
+/usr/share/doc/HTML/en/kstars/polar_assistant_ps1.png
+/usr/share/doc/HTML/en/kstars/polar_assistant_ps2.png
+/usr/share/doc/HTML/en/kstars/polar_assistant_ps3.png
 /usr/share/doc/HTML/en/kstars/popup.png
 /usr/share/doc/HTML/en/kstars/precession.docbook
 /usr/share/doc/HTML/en/kstars/process-stop.png

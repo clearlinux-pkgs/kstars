@@ -6,7 +6,7 @@
 #
 Name     : kstars
 Version  : 3.6.3
-Release  : 24
+Release  : 25
 URL      : https://download.kde.org/stable/kstars/kstars-3.6.3.tar.xz
 Source0  : https://download.kde.org/stable/kstars/kstars-3.6.3.tar.xz
 Source1  : https://download.kde.org/stable/kstars/kstars-3.6.3.tar.xz.sig
@@ -118,7 +118,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1675352318
+export SOURCE_DATE_EPOCH=1676856607
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -131,7 +131,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1675352318
+export SOURCE_DATE_EPOCH=1676856607
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kstars
 cp %{_builddir}/kstars-%{version}/LICENSES/Apache-2.0.txt %{buildroot}/usr/share/package-licenses/kstars/313c0a37067265b444271406894115709e4ae632 || :

@@ -7,7 +7,7 @@
 #
 Name     : kstars
 Version  : 3.6.4
-Release  : 27
+Release  : 28
 URL      : https://download.kde.org/stable/kstars/kstars-3.6.4.tar.xz
 Source0  : https://download.kde.org/stable/kstars/kstars-3.6.4.tar.xz
 Source1  : https://download.kde.org/stable/kstars/kstars-3.6.4.tar.xz.sig

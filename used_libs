@@ -27,8 +27,10 @@ libQt5Widgets.so.5
 libc.so.6
 libcfitsio.so.10
 libgcc_s.so.1
+libgsl.so.27
+libgslcblas.so.0
 libm.so.6
-libraw.so.20
+libraw.so.23
 libstdc++.so.6
 libwcs.so.7
 libz.so.1
